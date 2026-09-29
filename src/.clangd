@@ -1,0 +1,6 @@
+CompileFlags:
+  Add:
+    - "-D_DEBUG"
+    - "-I../include"
+Completion:
+  HeaderInsertion: Never

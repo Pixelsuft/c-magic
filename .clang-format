@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+ColumnLimit: 100
+DerivePointerAlignment: false
+IndentWidth: 4
+AccessModifierOffset: -4
+Language: C
+PointerAlignment: Left
+BreakBeforeBraces: Attach

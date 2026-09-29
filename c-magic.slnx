@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="c-magic.vcxproj" Id="83ad2704-991b-42a4-89d0-9e168bae8fef" />
+</Solution>

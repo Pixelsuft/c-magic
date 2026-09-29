@@ -1,0 +1,8 @@
+.vs
+.vscode
+c-magic
+x64
+*.exe
+*.dll
+
+backup

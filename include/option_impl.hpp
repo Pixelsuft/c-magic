@@ -5,6 +5,7 @@
 
 #ifndef T
 // For code editors only
+#error T was not defined
 
 #define T int
 #endif
@@ -29,10 +30,10 @@ static inline void _OPTION_CONCAT(_impl_drop__Option_, T)(Option(T) * self) {
 static inline bool _OPTION_CONCAT(_impl_object_format__Option_,
                                   T)(Writer writer, const Option(T) data) {
   if (data.has) {
-    return writer_write(writer, SV("Some<" _OPTION_TO_STRING(T) ">(")) &&
+    return writer_write(writer, SV("Option<" _OPTION_TO_STRING(T) ">(")) &&
            _OPTION_CONCAT(_impl_object_format_, T)(writer, data.value) &&
            writer_write(writer, SV(")"));
   } else {
-    return writer_write(writer, SV("None<" _OPTION_TO_STRING(T) ">"));
+    return writer_write(writer, SV("Option<" _OPTION_TO_STRING(T) ">(None)"));
   }
 }

@@ -6,7 +6,7 @@
 #include <writer.h>
 
 // Using C string for simplicity
-Option(i32) try_parse_int(const char* cstr) {
+static Option(i32) try_parse_int(const char* cstr) {
     char* endptr;
     errno = 0;
     long val = strtol(cstr, &endptr, 10);
@@ -14,7 +14,7 @@ Option(i32) try_parse_int(const char* cstr) {
         endptr == cstr) {
         return (Option(i32)){.has = false};
     }
-    return (Option(i32)){.value = (int)val, .has = true};
+    return (Option(i32)){.value = (i32)val, .has = true};
 }
 
 i32 main(i32 argc, const char* argv[]) {
@@ -22,6 +22,7 @@ i32 main(i32 argc, const char* argv[]) {
     (void)argv;
 
     StringView s = SV("TEST_STR!\n");
+    DROP(s);
 
     LOG_INFO("Hello, world!");
     LOG_INFO("TEST {} VALUE", SV("custom"));
@@ -31,7 +32,6 @@ i32 main(i32 argc, const char* argv[]) {
     LOG_INFO("PARSE INT \"123\": {}", try_parse_int("123"));
     LOG_INFO("PARSE INT \"abc\": {}", try_parse_int("abc"));
 
-    DROP(s);
     system("pause");
     return 0;
 }

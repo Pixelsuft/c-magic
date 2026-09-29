@@ -9,11 +9,10 @@
 
 typedef enum { WRITER_STDOUT, WRITER_STDERR } WriterType;
 
-// TODO: rename into iwriter?
 typedef struct {
     void* impl;
     WriterType type;
-} Writer;
+} VWriter;
 
 typedef struct {
     int dummy;
@@ -28,8 +27,8 @@ static inline bool _impl_writer_stdout(const WriterStdout* self, const StringVie
 
 static inline WriterStdout create_stdout_writer() { return (WriterStdout){.dummy = 0}; }
 
-static inline Writer stdout_writer_as_writer(WriterStdout* self) {
-    return (Writer){.impl = self, .type = WRITER_STDOUT};
+static inline VWriter stdout_writer_as_writer(WriterStdout* self) {
+    return (VWriter){.impl = self, .type = WRITER_STDOUT};
 }
 
 typedef struct {
@@ -45,11 +44,11 @@ static inline bool _impl_writer_stderr(const WriterStderr* self, const StringVie
 
 static inline WriterStderr create_stderr_writer() { return (WriterStderr){.dummy = 0}; }
 
-static inline Writer stderr_writer_as_writer(WriterStderr* self) {
-    return (Writer){.impl = self, .type = WRITER_STDERR};
+static inline VWriter stderr_writer_as_writer(WriterStderr* self) {
+    return (VWriter){.impl = self, .type = WRITER_STDERR};
 }
 
-static inline bool writer_write(Writer writer, StringView data) {
+static inline bool writer_write(VWriter writer, StringView data) {
     switch (writer.type) {
     case WRITER_STDOUT:
         return _impl_writer_stdout((WriterStdout*)writer.impl, data);
@@ -60,11 +59,11 @@ static inline bool writer_write(Writer writer, StringView data) {
 }
 
 // Impl basic types here to avoid recursive includes
-static inline bool _impl_object_format_StringView(Writer writer, const StringView data) {
+static inline bool _impl_object_format_StringView(VWriter writer, const StringView data) {
     return writer_write(writer, data);
 }
 
-static inline bool _impl_object_format_i32(Writer writer, const i32 data) {
+static inline bool _impl_object_format_i32(VWriter writer, const i32 data) {
     char buf[16];
 #ifdef _MSC_VER
     _itoa_s(data, buf, sizeof(buf), 10);

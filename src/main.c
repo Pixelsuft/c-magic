@@ -1,6 +1,6 @@
 #include <drop.h>
 #include <log.h>
-#include <option_i32.hpp>
+#include <option_i32.h>
 #include <stdlib.h>
 #include <sv.h>
 #include <writer.h>

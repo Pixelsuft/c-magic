@@ -2,7 +2,7 @@
 #pragma once
 #include "int.h"
 #define T i32
-#include "option_impl.hpp" // IWYU pragma: keep
+#include "option_impl.h" // IWYU pragma: keep
 #undef T
 
 #if !defined(_TD_1)

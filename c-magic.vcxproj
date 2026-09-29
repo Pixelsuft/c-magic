@@ -26,8 +26,8 @@
     <ClInclude Include="include\fmt.h" />
     <ClInclude Include="include\int.h" />
     <ClInclude Include="include\log.h" />
-    <ClInclude Include="include\option_i32.hpp" />
-    <ClInclude Include="include\option_impl.hpp" />
+    <ClInclude Include="include\option_i32.h" />
+    <ClInclude Include="include\option_impl.h" />
     <ClInclude Include="include\panic.h" />
     <ClInclude Include="include\sv.h" />
     <ClInclude Include="include\unreachable.h" />

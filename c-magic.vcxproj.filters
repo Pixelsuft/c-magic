@@ -44,10 +44,10 @@
     <ClInclude Include="include\unreachable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\option_i32.hpp">
+    <ClInclude Include="include\option_i32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\option_impl.hpp">
+    <ClInclude Include="include\option_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
